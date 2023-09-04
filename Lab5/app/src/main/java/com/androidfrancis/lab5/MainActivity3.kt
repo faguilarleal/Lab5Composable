@@ -9,12 +9,15 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -52,7 +55,10 @@ class MainActivity3 : ComponentActivity() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun Main3() {
-    Column(
+    Column(Modifier
+        .fillMaxHeight()
+        .verticalScroll(rememberScrollState())
+
     ){
         Box(Modifier
             .fillMaxWidth()
@@ -89,20 +95,23 @@ fun Main3() {
                 fontWeight= FontWeight.Bold,
                 fontSize = 20.sp)
             Text("Aqui va informacion importante sobre muchas cosas no se que hacer ni que escribir bla bla bla ",
-                Modifier.padding(start=10.dp).weight(1.0f),
+                Modifier.padding(start=10.dp),
                 fontSize = 15.sp,
             )
         }
         Row(
-            modifier = Modifier.padding(70.dp)
+            modifier = Modifier.padding(top= 170.dp,start = 85.dp),
+            verticalAlignment = Alignment.Bottom,
+
         ) {
             Button(onClick = { /*TODO*/ },
-                modifier= Modifier.padding(10.dp)) {
+
+                modifier= Modifier.padding(5.dp)) {
                 Text("Favorite")
             }
-            Spacer(modifier =Modifier.width(45.dp))
+            Spacer(modifier =Modifier.width(40.dp))
 
-            Button(onClick = { /*TODO*/ }, modifier= Modifier.padding(10.dp)) {
+            Button(onClick = { /*TODO*/ }, modifier= Modifier.padding(5.dp)) {
                 Text("Buy")
             }
         }
